@@ -12,6 +12,7 @@
 
 <h3>Item List</h3>
 <br>
+<a href="/index.html">Back</a>
 <div>
 
     <table class="table table-hover table-dark">

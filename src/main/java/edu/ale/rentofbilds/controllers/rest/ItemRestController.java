@@ -1,9 +1,10 @@
 package edu.ale.rentofbilds.controllers.rest;
 
+import edu.ale.rentofbilds.data.FakeData;
 import edu.ale.rentofbilds.model.Item;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import edu.ale.rentofbilds.service.item.impls.ItemServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -13,24 +14,35 @@ import java.util.stream.Stream;
 @RestController
 @RequestMapping("/api/item")
 public class ItemRestController {
-    List<Item> list = Stream.of(
-            new Item("1", "Coca-Cola", "Drink",
-                    LocalDateTime.now(), LocalDateTime.now()),
-            new Item("2", "Pepsi", "Drink",
-                    LocalDateTime.now(), LocalDateTime.now()),
-            new Item("3", "Sprite", "Drink",
-                    LocalDateTime.now(), LocalDateTime.now())
-    ).collect(Collectors.toList());
+ @Autowired
 
-    @RequestMapping("/all")
+ ItemServiceImpl service;
+
+    @RequestMapping("get/all")
     List<Item> getAll() {
-        return list;
+        return service.getAll();
     }
+
+
 
     @RequestMapping("/delete/{id}")
     Item deleteById(@PathVariable("id") String id) {
-        Item item = list.stream().filter(element -> element.getId().equals(id)).findFirst().orElse(null);
-        list.remove(item);
-        return item;
+       /* Item item = service.getAll().stream().filter(element -> element.getId().equals(id)).findFirst().orElse(null);
+        service.getAll().remove(item);*/
+        return service.delete(id);
+    }
+    @RequestMapping("/get/{id}")
+    Item getById(@PathVariable("id") String id) {
+
+        return service.get(id);
+    }
+    @PostMapping("/create")
+    Item create(@RequestBody Item item) {
+        return service.create(item);
+
+    }
+    @PutMapping("/update")
+        Item update(@RequestBody Item item) {
+            return service.update(item);
     }
 }

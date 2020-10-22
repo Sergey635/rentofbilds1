@@ -17,6 +17,7 @@ public class Item {
     public Item(String name, String description) {
         this.name = name;
         this.description = description;
+
     }
 
     public Item(String id, String name, String description, LocalDateTime created_at, LocalDateTime modified_at) {
