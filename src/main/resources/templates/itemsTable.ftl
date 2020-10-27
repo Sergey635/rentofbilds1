@@ -29,25 +29,25 @@
         </thead>
         <tbody>
         <#list items as element> <!--Цикл по всем element !! -->
-            <!--Для каждого element в списке items , который мы получили
-             из контроллера . -----------------------------
-             Формируем строку <tr>. У этой строки есть ..5.. ячеек
-              Каждая ичейка является полем ..елемента.. !
-              (id)(name) т.д !!! -->
-            <tr>
-                <td>${element.id}</td>
-                <td>${element.name}</td>
-                <td>${element.description}</td>
-                <td>${element.created_at}</td>
-                <td>${element.modified_at}</td>
-                <td><a href="/web/item/delete/${element.id}" class="btn btn-warning">Delete</a></td>
-                <td><a href="/web/item/edit/${element.id}" class="btn btn-outline-danger">Edit</a></td>
+        <!--Для каждого element в списке items , который мы получили
+         из контроллера . -----------------------------
+         Формируем строку <tr>. У этой строки есть ..5.. ячеек
+          Каждая ичейка является полем ..елемента.. !
+          (id)(name) т.д !!! -->
+        <tr>
+            <td>${element.id}</td>
+            <td>${element.name}</td>
+            <td>${element.description}</td>
+            <td>${element.created_at}</td>
+            <td>${element.modified_at}</td>
+            <td><a href="/web/item/delete/${element.id}" class="btn btn-warning">Delete</a></td>
+            <td><a href="/web/item/update/${element.id}" class="btn btn-outline-danger">Edit</a></td>
 
-            </tr>
+        </tr>
         </#list>
         </tbody>
     </table>
-
+    <a href="/web/item/add">Create</a>
 </div>
 </body>
 </html>
