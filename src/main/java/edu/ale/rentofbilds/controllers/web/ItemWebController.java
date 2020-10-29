@@ -5,6 +5,7 @@ import edu.ale.rentofbilds.data.FakeData;
 import edu.ale.rentofbilds.forms.ItemForm;
 import edu.ale.rentofbilds.model.Item;
 import edu.ale.rentofbilds.service.item.impls.ItemServiceImpl;
+import edu.ale.rentofbilds.service.item.interfaces.CrudItemMongoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +23,7 @@ import java.util.stream.Stream;
 @RequestMapping("/web/item")
 public class ItemWebController {
     @Autowired
-    ItemServiceImpl service;
+    CrudItemMongoImpl service;
 
     @RequestMapping("/all") // rest возращает JASON
     String  getAll(Model model) {
