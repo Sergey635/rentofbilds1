@@ -46,7 +46,6 @@ public class ItemWebController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String create(@ModelAttribute("form") ItemForm form, Model model) {
-        System.out.println(form);
         Item item = new Item();
         item.setName(form.getName());
         item.setDescription(form.getDescription());
