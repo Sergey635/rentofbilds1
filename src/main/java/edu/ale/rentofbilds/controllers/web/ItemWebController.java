@@ -1,11 +1,8 @@
 package edu.ale.rentofbilds.controllers.web;
 
-import edu.ale.rentofbilds.controllers.rest.ItemRestController;
-import edu.ale.rentofbilds.data.FakeData;
 import edu.ale.rentofbilds.forms.ItemForm;
 import edu.ale.rentofbilds.model.Item;
-import edu.ale.rentofbilds.service.item.impls.ItemServiceImpl;
-import edu.ale.rentofbilds.service.item.interfaces.CrudItemMongoImpl;
+import edu.ale.rentofbilds.service.item.impls.CrudItemMongoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,11 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Controller
 @RequestMapping("/web/item")
@@ -64,7 +56,8 @@ public class ItemWebController {
         return "updateItem";
     }
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
-    public String update(Model model, @ModelAttribute ("form") ItemForm form, @PathVariable("id") String id) {
+    public String update(Model model, @ModelAttribute ("form") ItemForm form
+            , @PathVariable("id") String id) {
         Item item = service.get(id);
         item.setName(form.getName());
         item.setDescription(form.getDescription());

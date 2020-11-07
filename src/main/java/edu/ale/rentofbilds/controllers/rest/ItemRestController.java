@@ -1,22 +1,18 @@
 package edu.ale.rentofbilds.controllers.rest;
 
-import edu.ale.rentofbilds.data.FakeData;
 import edu.ale.rentofbilds.model.Item;
-import edu.ale.rentofbilds.service.item.impls.ItemServiceImpl;
+import edu.ale.rentofbilds.service.item.impls.CrudItemMongoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @RestController
 @RequestMapping("/api/item")
 public class ItemRestController {
  @Autowired
 
- ItemServiceImpl service;
+ CrudItemMongoImpl service;
 
     @RequestMapping("get/all")
     List<Item> getAll() {

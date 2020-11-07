@@ -1,8 +1,9 @@
-package edu.ale.rentofbilds.service.item.interfaces;
+package edu.ale.rentofbilds.service.item.impls;
 
 import edu.ale.rentofbilds.data.FakeData;
 import edu.ale.rentofbilds.model.Item;
 import edu.ale.rentofbilds.repository.ItemRepository;
+import edu.ale.rentofbilds.service.item.interfaces.ICrudItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,14 +19,14 @@ public class CrudItemMongoImpl implements ICrudItem {
     @Autowired
     ItemRepository repository;
 
-    private List<Item> list = new ArrayList<>();
+   /* private List<Item> list = new ArrayList<>();
 
     @PostConstruct
     void init(){
         list = trash.getItems();
         list.size();
         repository.saveAll(list);
-    }
+    }*/
 
     @Override
     public Item create(Item item) {
