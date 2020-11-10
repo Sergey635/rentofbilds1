@@ -19,19 +19,22 @@ public class CrudItemMongoImpl implements ICrudItem {
     @Autowired
     ItemRepository repository;
 
-   /* private List<Item> list = new ArrayList<>();
+    private List<Item> list = new ArrayList<>();
 
     @PostConstruct
     void init(){
         list = trash.getItems();
+        System.out.println(list);
         list.size();
         repository.saveAll(list);
-    }*/
+        System.out.println("postconstuct for items wos collent");
+    }
 
     @Override
     public Item create(Item item) {
         item.setCreated_at(LocalDateTime.now());
         item.setModified_at(LocalDateTime.now());
+        System.out.println("кидаем мусор");
         return repository.save(item);
     }
 
