@@ -17,11 +17,13 @@ public class ItemWebController {
     @Autowired
     CrudItemMongoImpl service;
 
-    @RequestMapping("/all") // rest возращает JASON
-    String  getAll(Model model) {
+    @RequestMapping("/all")
+        // rest возращает JASON
+    String getAll(Model model) {
         model.addAttribute("items", service.getAll());
         return "itemsTable";
     }
+
     @RequestMapping("/delete/{id}")
     String deleteById(@PathVariable("id") String id) {
         service.delete(id);
@@ -45,6 +47,7 @@ public class ItemWebController {
         service.create(item);
         return "redirect:/web/item/all";
     }
+
     @RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
     public String update(Model model, @PathVariable("id") String id) {
         Item item = service.get(id);
@@ -55,13 +58,20 @@ public class ItemWebController {
         model.addAttribute("form", itemForm);
         return "updateItem";
     }
+
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
-    public String update(Model model, @ModelAttribute ("form") ItemForm form
+    public String update(Model model, @ModelAttribute("form") ItemForm form
             , @PathVariable("id") String id) {
         Item item = service.get(id);
         item.setName(form.getName());
         item.setDescription(form.getDescription());
         service.update(item);
         return "redirect:/web/item/all";
+    }
+
+    @RequestMapping(value = "/all/sort", method = RequestMethod.GET)
+    public String sortedByName(Model model) {
+        model.addAttribute("items", service.getAllSorted());
+        return "itemsTable";
     }
 }

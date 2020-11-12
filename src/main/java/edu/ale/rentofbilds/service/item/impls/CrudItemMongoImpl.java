@@ -10,7 +10,10 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class CrudItemMongoImpl implements ICrudItem {
     @Autowired
@@ -59,5 +62,12 @@ public class CrudItemMongoImpl implements ICrudItem {
     @Override
     public List<Item> getAll() {
         return repository.findAll();
+    }
+
+    public List<Item> getAllSorted() {
+        List<Item> list = repository.findAll();
+        List<Item> sorted = list.stream().sorted(Comparator.comparing(Item::getName))
+                .collect(Collectors.toList());
+        return sorted;
     }
 }

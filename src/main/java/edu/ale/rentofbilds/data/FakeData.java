@@ -37,7 +37,7 @@ public class FakeData {
                     LocalDate.of(2001, Month.APRIL,8), "esche tot bomj"),
             new Client("3","Alex Sergeevich", "Chernivtsi","123445",
                     LocalDate.of(2003, Month.APRIL,2), "esche tot bomj"),
-            new Client("1","Alex Sergeevich", "Chernivtsi","123445",
+            new Client("4","Alex Sergeevich", "Chernivtsi","123445",
                     LocalDate.of(2003, Month.APRIL,2), "esche tot bomj"))
             .collect(Collectors.toList());
 

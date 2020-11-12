@@ -19,7 +19,7 @@
         <thead>
         <tr>
             <th>id</th>
-            <th>Name</th>
+            <th>Name <button class="btn btn-dark" onclick="window.location.href = '/web/item/all/sort'">Sorting</button></th>
             <th>Description</th>
             <th>Created</th>
             <th>Modified</th>
