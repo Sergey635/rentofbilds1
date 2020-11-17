@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<h3>Item List</h3>
+<h3>Clients List</h3>
 <br>
 <a href="/index.html">Back</a>
 <div>

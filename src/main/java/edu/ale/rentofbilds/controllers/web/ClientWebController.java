@@ -2,6 +2,7 @@ package edu.ale.rentofbilds.controllers.web;
 
 import edu.ale.rentofbilds.forms.ClientForm;
 import edu.ale.rentofbilds.model.Client;
+import edu.ale.rentofbilds.model.Gender;
 import edu.ale.rentofbilds.service.client.impls.CrudClientMongoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Controller
 @RequestMapping("/web/client")
@@ -33,8 +39,10 @@ public class ClientWebController {
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String create(Model model) {
+        List<String> genders = Stream.of(Gender.values()).map(Gender::name).collect(Collectors.toList());
         ClientForm clientForm = new ClientForm();
         model.addAttribute("form", clientForm);
+        model.addAttribute("genders", genders);
         return "clientAddForm";
     }
 
@@ -53,6 +61,7 @@ public class ClientWebController {
     @RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
     public String update(Model model, @PathVariable("id") String id) {
         Client client = service.get(id);
+        List<String> genders = Stream.of(Gender.values()).map(Gender::name).collect(Collectors.toList());
         ClientForm clientForm = new ClientForm();
         clientForm.setId(client.getId());
         clientForm.setName(client.getName());
@@ -62,6 +71,7 @@ public class ClientWebController {
         clientForm.setBirthday(client.getBirthday().toString());
         clientForm.setPhone(client.getPhone());
         model.addAttribute("form", clientForm);
+        model.addAttribute("genders", genders);
         return "updateClient";
     }
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)

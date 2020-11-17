@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 @Document
-public class Client  {
+public class Client {
     @Id
     private String id;
     private String name;
