@@ -11,6 +11,14 @@
 <body>
 
 <h3>Item List</h3>
+<fieldset>
+    <legend>Add items</legend>
+    <form name="client" action="" method="POST">
+        Search:<@spring.formInput "search.name" "" "text"/>
+        <br>
+        <input type="submit" value="Find"/>
+    </form>
+</fieldset>
 <br>
 <a href="/index.html">Back</a>
 <div>
