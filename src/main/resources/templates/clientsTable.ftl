@@ -20,6 +20,7 @@
         <tr>
             <th>id</th>
             <th>Name</th>
+            <th>Gender</th>
             <th>Adres</th>
             <th>Phone</th>
             <th>Birthday</th>
@@ -35,6 +36,7 @@
             <tr>
                 <td>${element.id}</td>
                 <td>${element.name}</td>
+                <td>${element.gender}</td>
                 <td>${element.adres}</td>
                 <td>${element.phone}</td>
                 <td>${element.birthday}</td>

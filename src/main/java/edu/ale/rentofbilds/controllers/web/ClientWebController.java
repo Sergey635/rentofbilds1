@@ -42,6 +42,7 @@ public class ClientWebController {
     public String create(@ModelAttribute("form") ClientForm form, Model model) {
         Client client = new Client();
         client.setName(form.getName());
+        client.setGender(form.getGender());
         client.setDescription(form.getDescription());
         client.setAdres(form.getAdres());
         client.setBirthday(LocalDate.parse(form.getBirthday()));
@@ -55,6 +56,7 @@ public class ClientWebController {
         ClientForm clientForm = new ClientForm();
         clientForm.setId(client.getId());
         clientForm.setName(client.getName());
+        clientForm.setGender(client.getGender());
         clientForm.setDescription(client.getDescription());
         clientForm.setAdres(client.getAdres());
         clientForm.setBirthday(client.getBirthday().toString());
@@ -67,6 +69,7 @@ public class ClientWebController {
             , @PathVariable("id") String id) {
         Client client = service.get(id);
         client.setName(form.getName());
+        client.setGender(form.getGender());
         client.setDescription(form.getDescription());
         client.setAdres(form.getAdres());
         client.setBirthday(LocalDate.parse(form.getBirthday()));

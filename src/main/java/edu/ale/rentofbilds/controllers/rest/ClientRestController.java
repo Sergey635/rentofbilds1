@@ -11,7 +11,6 @@ import java.util.List;
 @RequestMapping("/api/client")
 public class ClientRestController {
     @Autowired
-
     CrudClientMongoImpl service;
 
     @RequestMapping("get/all")

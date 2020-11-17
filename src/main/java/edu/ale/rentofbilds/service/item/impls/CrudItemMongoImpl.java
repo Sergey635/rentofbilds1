@@ -27,10 +27,7 @@ public class CrudItemMongoImpl implements ICrudItem {
     @PostConstruct
     void init(){
         list = trash.getItems();
-        System.out.println(list);
         list.size();
-        repository.saveAll(list);
-        System.out.println("postconstuct for items wos collent");
     }
 
     @Override

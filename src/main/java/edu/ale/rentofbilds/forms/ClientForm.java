@@ -5,6 +5,7 @@ import java.time.LocalDate;
 public class ClientForm {
     private String id = " ";
     private String name = " ";
+    private String gender = " ";
     private String adres = " ";
     private String phone = " ";
     private String birthday = " ";
@@ -24,21 +25,19 @@ public class ClientForm {
         this.description = description;
     }
 
-    public ClientForm(String name, String adres, String phone, String birthday
-            , String description, String created_at, String modified_at) {
+    public ClientForm(String name, String gender, String adres, String phone, String birthday, String description) {
         this.name = name;
+        this.gender = gender;
         this.adres = adres;
         this.phone = phone;
         this.birthday = birthday;
         this.description = description;
-        this.created_at = created_at;
-        this.modified_at = modified_at;
     }
 
-    public ClientForm(String id, String name, String adres, String phone, String birthday
-            , String description, String created_at, String modified_at) {
+    public ClientForm(String id, String name, String gender, String adres, String phone, String birthday, String description, String created_at, String modified_at) {
         this.id = id;
         this.name = name;
+        this.gender = gender;
         this.adres = adres;
         this.phone = phone;
         this.birthday = birthday;
@@ -109,6 +108,14 @@ public class ClientForm {
 
     public void setModified_at(String modified_at) {
         this.modified_at = modified_at;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     @Override

@@ -11,6 +11,7 @@ public class Client  {
     @Id
     private String id;
     private String name;
+    private String gender;
     private String adres;
     private String phone;
     private LocalDate birthday;
@@ -21,33 +22,35 @@ public class Client  {
     public Client() {
     }
 
-    public Client(String id, String name, String adres, String phone, LocalDate birthday, String description) {
-        this.id = id;
+    public Client(String name, String gender, String adres, String phone, LocalDate birthday, String description) {
         this.name = name;
+        this.gender = gender;
         this.adres = adres;
         this.phone = phone;
         this.birthday = birthday;
         this.description = description;
     }
 
-    public Client(String name, String adres, String phone, LocalDate birthday, String description) {
-        this.name = name;
-        this.adres = adres;
-        this.phone = phone;
-        this.birthday = birthday;
-        this.description = description;
-    }
-
-    public Client(String id, String name, String adres, String phone, LocalDate birthday, String description,
-                  LocalDateTime created_at, LocalDateTime modified_at) {
+    public Client(String id, String name, String gender, String adres, String phone, LocalDate birthday, String description, LocalDateTime created_at, LocalDateTime modified_at) {
         this.id = id;
         this.name = name;
+        this.gender = gender;
         this.adres = adres;
         this.phone = phone;
         this.birthday = birthday;
         this.description = description;
         this.created_at = created_at;
         this.modified_at = modified_at;
+    }
+
+    public Client(String id, String name, String gender, String adres, String phone, LocalDate birthday, String description) {
+        this.id = id;
+        this.name = name;
+        this.gender = gender;
+        this.adres = adres;
+        this.phone = phone;
+        this.birthday = birthday;
+        this.description = description;
     }
 
     public String getId() {
@@ -64,6 +67,14 @@ public class Client  {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getAdres() {
@@ -115,6 +126,21 @@ public class Client  {
     }
 
     @Override
+    public String toString() {
+        return "Client{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", adres='" + adres + '\'' +
+                ", phone='" + phone + '\'' +
+                ", birthday=" + birthday +
+                ", description='" + description + '\'' +
+                ", created_at=" + created_at +
+                ", modified_at=" + modified_at +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -125,19 +151,5 @@ public class Client  {
     @Override
     public int hashCode() {
         return Objects.hash(getId());
-    }
-
-    @Override
-    public String toString() {
-        return "Client{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", adress='" + adres + '\'' +
-                ", phone='" + phone + '\'' +
-                ", birthday=" + birthday +
-                ", description='" + description + '\'' +
-                ", created_at=" + created_at +
-                ", modified_at=" + modified_at +
-                '}';
     }
 }

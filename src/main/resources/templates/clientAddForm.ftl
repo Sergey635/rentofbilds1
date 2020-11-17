@@ -1,4 +1,4 @@
-<#import "/spring.ftl" as spring/>
+<#--<#import "/spring.ftl" as spring/>-->
 <#import "/spring.ftl" as spring/>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +15,8 @@
         <legend>Add client</legend>
         <form name="client" action="" method="POST">
             Name:<@spring.formInput "form.name" "" "text"/>
+            <br>
+            Gender:<@spring.formInput "form.gender" "" "text"/>
             <br>
             Adres:<@spring.formInput "form.adres" "" "text"/>
             <br>

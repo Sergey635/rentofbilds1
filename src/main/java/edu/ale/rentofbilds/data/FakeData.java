@@ -31,13 +31,13 @@ public class FakeData {
     }
 
    private List<Client> clients = Stream.of(
-            new Client("1","Alex Sergeevich", "Chernivtsi","123445",
-                    LocalDate.of(2003, Month.APRIL,2), "esche tot bomj"),
-            new Client("2","Bomj Gena", "Chernivtsi pod mostom","16543241",
+            new Client("1","Alex Sergeevich","", "Chernivtsi","123445",
+                    LocalDate.of(2003, Month.APRIL,2),"esche tot bomj"),
+            new Client("2","Bomj Gena","", "Chernivtsi pod mostom","16543241",
                     LocalDate.of(2001, Month.APRIL,8), "esche tot bomj"),
-            new Client("3","Alex Sergeevich", "Chernivtsi","123445",
+            new Client("3","Alex Sergeevich","", "Chernivtsi","123445",
                     LocalDate.of(2003, Month.APRIL,2), "esche tot bomj"),
-            new Client("4","Alex Sergeevich", "Chernivtsi","123445",
+            new Client("4","Alex Sergeevich","", "Chernivtsi","123445",
                     LocalDate.of(2003, Month.APRIL,2), "esche tot bomj"))
             .collect(Collectors.toList());
 
