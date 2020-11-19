@@ -14,22 +14,24 @@ import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class CrudClientMongoImpl implements ICrudClient {
-    @Autowired
-    FakeData trash;
+   // @Autowired
+   //FakeData trash;
 
     @Autowired
     IClientRepository repository;
 
     private List<Client> list = new ArrayList<>();
 
-    @PostConstruct
+    /*@PostConstruct
     void init(){
         list = trash.getClients();
         list.size();
         repository.saveAll(list);
-    }
+    }*/
 
     @Override
     public Client create(Client client) {
@@ -62,5 +64,11 @@ public class CrudClientMongoImpl implements ICrudClient {
     @Override
     public List<Client> getAll() {
         return repository.findAll();
+    }
+
+    public List<Client> getByName(String name) {
+        if (name.equals("")) return this.getAll();
+        return this.getAll().stream().filter(client -> client.getName().contains(name))
+                .collect(Collectors.toList());
     }
 }

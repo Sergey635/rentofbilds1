@@ -80,6 +80,8 @@ public class ItemWebController {
     @RequestMapping(value = "/all/sort", method = RequestMethod.GET)
     public String sortedByName(Model model) {
         model.addAttribute("items", service.getAllSorted());
+        SearchForm search = new SearchForm();
+        model.addAttribute("search", search);
         return "itemsTable";
     }
 }

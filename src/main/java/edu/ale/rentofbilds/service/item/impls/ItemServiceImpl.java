@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class ItemServiceImpl implements ICrudItem {
 
-    @Autowired
+    //@Autowired
     FakeData trash;
 
     @Override

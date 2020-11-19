@@ -1,16 +1,14 @@
 package edu.ale.rentofbilds.controllers.web;
 
 import edu.ale.rentofbilds.forms.ClientForm;
+import edu.ale.rentofbilds.forms.SearchForm;
 import edu.ale.rentofbilds.model.Client;
 import edu.ale.rentofbilds.model.Gender;
 import edu.ale.rentofbilds.service.client.impls.CrudClientMongoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -28,6 +26,16 @@ public class ClientWebController {
     @RequestMapping("/all") // rest возращает JASON
     String  getAll(Model model) {
         model.addAttribute("clients", service.getAll());
+        SearchForm search = new SearchForm();
+        model.addAttribute("search", search);
+        return "clientsTable";
+    }
+    @PostMapping("/all")
+    String getAll(Model model, @ModelAttribute("search") SearchForm form) {
+        String name = form.getName();
+        model.addAttribute("clients", service.getByName(name));
+        SearchForm search = new SearchForm();
+        model.addAttribute("search", search);
         return "clientsTable";
     }
     @RequestMapping("/delete/{id}")

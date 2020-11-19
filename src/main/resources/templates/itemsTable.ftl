@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet"
           type="text/css" href="<@spring.url '/css/style.css'/>"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
 </head>
 <body>
 
-<h3>Item List</h3>
+<h3 style="text-align: center">Item List</h3>
 <fieldset>
-    <legend>Add items</legend>
     <form name="client" action="" method="POST">
         Search:<@spring.formInput "search.name" "" "text"/>
         <br>
@@ -20,7 +20,9 @@
     </form>
 </fieldset>
 <br>
-<a href="/index.html">Back</a>
+<a href="/web/item/all" class="badge badge-danger">Refresh</a>
+<br>
+<a href="/index.html" class="badge badge-info">Back</a>
 <div>
 
     <table class="table table-hover table-dark">
@@ -57,5 +59,6 @@
     </table>
     <a href="/web/item/add">Create</a>
 </div>
+
 </body>
 </html>

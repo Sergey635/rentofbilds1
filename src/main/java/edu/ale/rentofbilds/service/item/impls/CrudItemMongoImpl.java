@@ -16,19 +16,19 @@ import java.util.stream.Collectors;
 
 @Service
 public class CrudItemMongoImpl implements ICrudItem {
-    @Autowired
-    FakeData trash;
+   /* @Autowired
+    FakeData trash;*/
 
     @Autowired
     ItemRepository repository;
 
     private List<Item> list = new ArrayList<>();
 
-    @PostConstruct
+    /*@PostConstruct
     void init(){
         list = trash.getItems();
         list.size();
-    }
+    }*/
 
     @Override
     public Item create(Item item) {
