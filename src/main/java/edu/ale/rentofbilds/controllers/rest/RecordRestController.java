@@ -12,7 +12,6 @@ import java.util.List;
 @RequestMapping("/api/record")
 public class RecordRestController {
  @Autowired
-
  ServiceRecordMongoImpl service;
 
     @RequestMapping("get/all")

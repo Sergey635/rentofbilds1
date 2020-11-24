@@ -65,6 +65,7 @@ public class FakeData {
     public void setClients(List<Client> clients) {
         this.clients = clients;
     }
+
     private List<Record> records = Stream.of(
             new Record("1","record1","desk1",LocalDateTime.now(),LocalDateTime.now(),
                     clients.get(0), builds.get(0),LocalDateTime.now(), LocalDateTime.now()),
