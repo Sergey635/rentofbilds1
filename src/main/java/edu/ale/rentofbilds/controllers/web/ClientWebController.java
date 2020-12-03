@@ -45,7 +45,7 @@ public class ClientWebController {
         return "redirect:/web/client/all";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String create(Model model) {
         List<String> genders = Stream.of(Gender.values()).map(Gender::name).collect(Collectors.toList());
         ClientForm clientForm = new ClientForm();
@@ -54,7 +54,7 @@ public class ClientWebController {
         return "clientAddForm";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String create(@ModelAttribute("form") ClientForm form, Model model) {
         Client client = new Client();
         client.setName(form.getName());

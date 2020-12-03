@@ -40,14 +40,14 @@ public class ItemWebController {
         return "redirect:/web/item/all";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String create(Model model) {
         ItemForm itemForm = new ItemForm();
         model.addAttribute("form", itemForm);
         return "itemAddForm";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String create(@ModelAttribute("form") ItemForm form, Model model) {
         Item item = new Item();
         item.setName(form.getName());

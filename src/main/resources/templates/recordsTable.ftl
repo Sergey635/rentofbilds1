@@ -8,9 +8,11 @@
     <link rel="stylesheet"
           type="text/css" href="<@spring.url '/css/style.css'/>"/>
 </head>
-<body>
-
 <h3>Records List</h3>
+<body>
+<button onclick="window.location.href = '/web/record/all'">Renew</button>
+<br>
+
 <#--<fieldset>
     <form name="client" action="" method="POST">
         Search:<@spring.formInput "search.name" "" "text"/>
@@ -55,7 +57,7 @@
         </#list>
         </tbody>
     </table>
-    <a href="/web/record/add">Create</a>
+    <a href="/web/record/create">Create</a>
 
 </div>
 </body>

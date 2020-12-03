@@ -14,6 +14,7 @@ import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -26,12 +27,13 @@ public class CrudClientMongoImpl implements ICrudClient {
 
     private List<Client> list = new ArrayList<>();
 
-    /*@PostConstruct
+    @PostConstruct
     void init(){
-        list = trash.getClients();
+        /*list = trash.getClients();
         list.size();
-        repository.saveAll(list);
-    }*/
+        repository.saveAll(list);*/
+        System.out.println(this.getGroupedByGender());
+    }
 
     @Override
     public Client create(Client client) {
@@ -71,4 +73,11 @@ public class CrudClientMongoImpl implements ICrudClient {
         return this.getAll().stream().filter(client -> client.getName().contains(name))
                 .collect(Collectors.toList());
     }
+
+    public Map<String, Long> getGroupedByGender(){
+        return this.getAll().stream()
+                .collect(Collectors.groupingBy(Client::getGender, Collectors.counting()));
+
+    }
+
 }

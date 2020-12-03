@@ -7,6 +7,7 @@ import edu.ale.rentofbilds.service.record.interfaces.ICrudRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,22 +19,28 @@ public class ServiceRecordMongoImpl implements ICrudRecord {
 
     @Override
     public Record create(Record record) {
-        return null;
+
+        record.setCreated_at(LocalDateTime.now());
+        record.setModified_at(LocalDateTime.now());
+        return repository.save(record);
     }
 
     @Override
     public Record get(String id) {
-        return null;
+        return repository.findById(id).orElse(null);
     }
 
     @Override
     public Record update(Record record) {
-        return null;
+        record.setModified_at(LocalDateTime.now());
+        return repository.save(record);
     }
 
     @Override
     public Record delete(String id) {
-        return null;
+        Record record = this.get(id);
+        repository.deleteById(id);
+        return record;
     }
 
     @Override

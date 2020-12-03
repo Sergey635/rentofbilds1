@@ -57,7 +57,7 @@
         </#list>
         </tbody>
     </table>
-    <a href="/web/client/add">Create</a>
+    <a href="/web/client/create">Create</a>
 
 </div>
 </body>

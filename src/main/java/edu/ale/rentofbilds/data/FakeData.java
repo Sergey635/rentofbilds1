@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-//@Repository
+@Repository
 public class FakeData {
     @Autowired
     RecordRepository recordRepository;
@@ -77,8 +77,10 @@ public class FakeData {
                     clients.get(3), builds.get(3),LocalDateTime.now(), LocalDateTime.now()))
             .collect(Collectors.toList());
 
-        @PostConstruct
+
+        //@PostConstruct
         void init(){
+            recordRepository.deleteAll();
             recordRepository.saveAll(records);
         }
 
@@ -100,5 +102,10 @@ public class FakeData {
 
     public void setRecords(List<Record> records) {
         this.records = records;
+    }
+
+    public List<Record> renewRecrds() {
+        recordRepository.deleteAll();
+        return recordRepository.saveAll(records);
     }
 }
